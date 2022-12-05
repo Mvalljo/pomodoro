@@ -50,6 +50,11 @@ def count_down(count):
         window.after(1000, count_down, count - 1)
     else:
         start_timer()
+        checks = ""
+        work_sessions = math.floor(reps/2)
+        for _ in range(work_sessions):
+            checks += "✔"
+        check_label.config(text=checks)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
@@ -72,7 +77,7 @@ start_btn.grid(column=0, row=2)
 reset_btn = Button(text="Reset", highlightthickness=0)
 reset_btn.grid(column=2, row=2)
 
-check_label = Label(text="✔", bg=YELLOW, fg=GREEN)
+check_label = Label(bg=YELLOW, fg=GREEN)
 check_label.grid(column=1, row=3)
 
 window.mainloop()
